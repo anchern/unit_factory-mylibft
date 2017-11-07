@@ -6,7 +6,7 @@
 /*   By: achernys <achernys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 17:29:54 by achernys          #+#    #+#             */
-/*   Updated: 2017/11/02 19:48:56 by achernys         ###   ########.fr       */
+/*   Updated: 2017/11/07 18:50:49 by achernys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ char	*ft_strrchr(const char *s, char c);
 char	*ft_strstr(const char *big, const char *little);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strcmp(const char *str1, const char *str2);
-int     ft_pow(int num, int pow);
-int     ft_atoi(char *str);
-int     ft_isalpha(int c);
-int     ft_isdigit(int c);
-int     ft_isalnum(int c);
-int     ft_isascii(int c);
-int     ft_isprint(int c);
-int     ft_toupper(int c);
-int     ft_tolower(int c);
+long	ft_pow(long num, int pow);
+int		ft_atoi(char *str);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
+int		ft_isprint(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
 #endif

@@ -14,12 +14,28 @@
 
 static size_t			ft_strlend(char *str)
 {
-	size_t len;
+	size_t	len;
+	int 	i;
 
+	i = 0;
+	while (str[i] == '0')
+		i++;
 	len = 0;
-	while (str[len] != '\0' && ft_isdigit(str[len]))
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+	{
 		len++;
+		i++;
+	}
 	return (len);
+}
+static char		*skipzero(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i] == '0')
+		i++;
+	return (&s[i]);
 }
 
 static unsigned long	atoul(char *str, long multiplication)
@@ -39,7 +55,7 @@ static unsigned char	overflow_check(char *str)
 
 	if (ft_strlend(str) > 20)
 		return (1);
-	tmp = atoul(str, ft_pow(10, (int)ft_strlend(str) - 1));
+	tmp = atoul(skipzero(str), ft_pow(10, (int)ft_strlend(str) - 1));
 	max = 9223372036854775807U;
 	if (tmp > max)
 		return (1);
@@ -60,17 +76,17 @@ int				ft_atoi(char *str)
 	{
 		if (overflow_check(&str[i]) == 1)
 			return (0);
-		return (-(int)atoul(&str[i], ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
+		return (-(int)atoul(skipzero(&str[i]), ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
 	}
 	if (str[i - 1] == '+')
 	{
 		if (overflow_check(&str[i]) == 1)
 			return (-1);
-		return ((int)atoul(&str[i], ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
+		return ((int)atoul(skipzero(&str[i]), ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
 	}
 	if (!ft_strlend(&str[i]))
 		return (0);
 	if (overflow_check(&str[i]) == 1)
 		return (-1);
-	return ((int)atoul(&str[i], ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
+	return ((int)atoul(skipzero(&str[i]), ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
 }

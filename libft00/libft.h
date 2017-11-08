@@ -33,7 +33,6 @@ char	*ft_strrchr(const char *s, char c);
 char	*ft_strstr(const char *big, const char *little);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strcmp(const char *str1, const char *str2);
-long	ft_pow(long num, int pow);
 int		ft_atoi(char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -42,4 +41,6 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+long	ft_pow(long num, int pow);
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
 #endif

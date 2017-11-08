@@ -12,7 +12,7 @@
 
 long	ft_pow(long num, int pow)
 {
-    if (pow == 0)
-        return (1);
-    return (num * ft_pow(num, pow - 1));
+	if (pow == 0)
+		return (1);
+	return (num * ft_pow(num, pow - 1));
 }

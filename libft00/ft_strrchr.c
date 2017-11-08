@@ -17,16 +17,14 @@ char	*ft_strrchr(const char *s, char c)
 	unsigned char	flag;
 	size_t			i;
 	size_t			tmp;
-	char			*res;
 
 	flag = 0;
 	i = 0;
-	res = ft_strdup(s);
 	if (c == '\0')
-		return (&res[ft_strlen(res)]);
-	while (res[i] != '\0')
+		return (&((char *)s)[ft_strlen(s)]);
+	while (((char *)s)[i] != '\0')
 	{
-		if (res[i] == c)
+		if (((char *)s)[i] == c)
 		{
 			tmp = i;
 			flag = 1;
@@ -34,6 +32,6 @@ char	*ft_strrchr(const char *s, char c)
 		i++;
 	}
 	if (flag == 1)
-		return (&res[tmp]);
+		return (&((char *)s)[tmp]);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: achernys <achernys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/02 15:48:21 by achernys          #+#    #+#             */
-/*   Updated: 2017/11/02 16:57:25 by achernys         ###   ########.fr       */
+/*   Updated: 2017/11/08 21:30:49 by achernys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
-	char	*res;
 
 	i = 0;
-	res = ft_strdup(s);
-	if (c == '\0')
-		return (&res[ft_strlen(res)]);
-	while (res[i] != '\0')
+	if ((char)c == '\0')
+		return (&((char *)s)[ft_strlen(s)]);
+	while (s[i] != '\0')
 	{
-		if (res[i] == c)
-			return (&res[i]);
+		if (s[i] == (char)c)
+			return (&((char *)s)[i]);
 		i++;
 	}
 	return (0);

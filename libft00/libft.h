@@ -6,7 +6,7 @@
 /*   By: achernys <achernys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 17:29:54 by achernys          #+#    #+#             */
-/*   Updated: 2017/11/07 18:50:49 by achernys         ###   ########.fr       */
+/*   Updated: 2017/11/09 20:09:31 by achernys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,20 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 long	ft_pow(long num, int pow);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void	ft_memdel(void **ap);
+void	*ft_memalloc(size_t size);
+char	*ft_strnew(size_t size);
+void	ft_strdel(char **as);
+void	ft_strclr(char *s);
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_strequ(char const *s1, char const *s2);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strsub(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s);
+char	*ft_strtrimc(char const *s, char c);
+char	**ft_strsplit(char const *s, char c);
 #endif

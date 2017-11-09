@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static size_t			ft_strlend(char *str)
+static int				ft_lend(char *str)
 {
-	size_t	len;
-	int 	i;
+	int		len;
+	int		i;
 
 	i = 0;
 	while (str[i] == '0')
@@ -28,7 +28,8 @@ static size_t			ft_strlend(char *str)
 	}
 	return (len);
 }
-static char		*skipzero(char *s)
+
+static char				*skip0(char *s)
 {
 	int i;
 
@@ -53,16 +54,16 @@ static unsigned char	overflow_check(char *str)
 	unsigned long tmp;
 	unsigned long max;
 
-	if (ft_strlend(str) > 20)
+	if (ft_lend(str) > 20)
 		return (1);
-	tmp = atoul(skipzero(str), ft_pow(10, (int)ft_strlend(str) - 1));
+	tmp = atoul(skip0(str), ft_pow(10, ft_lend(str) - 1));
 	max = 9223372036854775807U;
 	if (tmp > max)
 		return (1);
 	return (0);
 }
 
-int				ft_atoi(char *str)
+int						ft_atoi(char *str)
 {
 	int i;
 
@@ -70,23 +71,23 @@ int				ft_atoi(char *str)
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
-		if (!ft_strlend(&str[++i]))
+		if (!ft_lend(&str[++i]))
 			return (0);
 	if (str[i - 1] == '-')
 	{
 		if (overflow_check(&str[i]) == 1)
 			return (0);
-		return (-(int)atoul(skipzero(&str[i]), ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
+		return (-(int)atoul(skip0(&str[i]), ft_pow(10, ft_lend(&str[i]) - 1)));
 	}
 	if (str[i - 1] == '+')
 	{
 		if (overflow_check(&str[i]) == 1)
 			return (-1);
-		return ((int)atoul(skipzero(&str[i]), ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
+		return ((int)atoul(skip0(&str[i]), ft_pow(10, ft_lend(&str[i]) - 1)));
 	}
-	if (!ft_strlend(&str[i]))
+	if (!ft_lend(&str[i]))
 		return (0);
 	if (overflow_check(&str[i]) == 1)
 		return (-1);
-	return ((int)atoul(skipzero(&str[i]), ft_pow(10, (int)ft_strlend(&str[i]) - 1)));
+	return ((int)atoul(skip0(&str[i]), ft_pow(10, ft_lend(&str[i]) - 1)));
 }

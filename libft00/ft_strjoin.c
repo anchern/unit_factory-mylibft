@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achernys <achernys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/28 14:20:17 by anton             #+#    #+#             */
-/*   Updated: 2017/11/07 20:53:19 by achernys         ###   ########.fr       */
+/*   Created: 2017/11/09 16:00:44 by achernys          #+#    #+#             */
+/*   Updated: 2017/11/09 16:01:29 by achernys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
+	char	*joins;
+	size_t	i;
+	size_t	j;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	joins = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (joins == NULL)
+		return (NULL);
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (i < ft_strlen(s1))
 	{
-		dest[i] = src[i];
+		joins[i] = s1[i];
 		i++;
 	}
-	while (i < n)
+	j = 0;
+	while (j < ft_strlen(s2))
 	{
-		dest[i] = '\0';
-		i++;
+		joins[i + j] = s2[j];
+		j++;
 	}
-	return (dest);
+	return (joins);
 }

@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achernys <achernys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/28 14:20:17 by anton             #+#    #+#             */
-/*   Updated: 2017/11/07 20:53:19 by achernys         ###   ########.fr       */
+/*   Created: 2017/11/09 12:59:29 by achernys          #+#    #+#             */
+/*   Updated: 2017/11/09 12:59:46 by achernys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	*ft_memalloc(size_t size)
 {
-	size_t i;
+	unsigned char	*mem;
+	size_t			i;
 
+	if (!(mem = malloc(size)))
+		return (NULL);
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	while (i < size)
 	{
-		dest[i] = src[i];
+		mem[i] = 0;
 		i++;
 	}
-	while (i < n)
-	{
-		dest[i] = '\0';
-		i++;
-	}
-	return (dest);
+	return ((void *)mem);
 }

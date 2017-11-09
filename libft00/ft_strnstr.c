@@ -15,13 +15,14 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	size_t	j;
+	size_t	biglen;
 
-	j = 0;
 	if (ft_strlen(little) == 0)
 		return ((char *)big);
+	biglen = ft_strlen(big);
 	big = ft_strchr(big, little[0]);
-	while (big != '\0' && j < len - 1)
+	while (big != '\0' && (biglen - ft_strlen(big) <= len) &&
+			(len - (biglen - ft_strlen(big)) >= ft_strlen(little)))
 	{
 		i = 0;
 		while (little[i] != '\0')
@@ -33,7 +34,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		if (i == ft_strlen(little))
 			return ((char *)big);
 		big = ft_strchr(big + 1, little[0]);
-		j++;
 	}
 	return (0);
 }

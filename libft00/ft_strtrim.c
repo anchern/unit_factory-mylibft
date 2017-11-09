@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achernys <achernys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/28 14:20:17 by anton             #+#    #+#             */
-/*   Updated: 2017/11/07 20:53:19 by achernys         ###   ########.fr       */
+/*   Created: 2017/11/09 16:30:17 by achernys          #+#    #+#             */
+/*   Updated: 2017/11/09 16:30:34 by achernys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_strtrim(char const *s)
 {
-	size_t i;
+	size_t	i;
+	size_t	j;
+	char	*outs;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
-	while (src[i] != '\0' && i < n)
+	j = ft_strlen(s) - 1;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 	{
-		dest[i] = src[i];
 		i++;
 	}
-	while (i < n)
+	if (i == ft_strlen(s))
 	{
-		dest[i] = '\0';
-		i++;
+		if ((outs = ft_strnew(0)))
+			return (outs);
 	}
-	return (dest);
+	while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
+	{
+		j--;
+	}
+	outs = ft_strsub(s, (unsigned int)i, (j - i) + 1);
+	if (outs == NULL)
+		return (NULL);
+	return (outs);
 }

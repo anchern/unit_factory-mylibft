@@ -6,7 +6,7 @@
 /*   By: achernys <achernys@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 04:35:18 by achernys          #+#    #+#             */
-/*   Updated: 2017/11/11 07:13:59 by achernys         ###   ########.fr       */
+/*   Updated: 2017/11/11 07:53:23 by achernys         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,8 @@
 
 static void	del(void *content, size_t content_size)
 {
-	size_t i;
-
-	i = 0;
-	while (i < content_size)
-	{
-		free(&content[i]);
-		i++;
-	}
+	ft_memset(content, 0, content_size);
+	free(content);
 }
 
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))

@@ -6,7 +6,7 @@
 #    By: achernys <achernys@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/10/27 17:30:25 by achernys          #+#    #+#              #
-#    Updated: 2017/11/11 02:23:13 by achernys         ###   ########.fr        #
+#    Updated: 2017/11/11 04:59:02 by achernys         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRC = ft_bzero.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft
         ft_isdigit.c ft_isprint.c ft_tolower.c ft_toupper.c ft_pow.c ft_memccpy.c ft_memalloc.c ft_memdel.c ft_strnew.c\
         ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c\
         ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_strtrimc.c ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c\
-        ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c
+        ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c\
+        ft_lstiter.c ft_lstmap.c
 
 OFILES = $(SRC:.c=.o)
 
